@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Bagus2x</title>
-    <link>bagus2x.github.io/categories/docker/</link>
+    <link>/categories/docker/</link>
     <description>Recent content in Docker on Bagus2x</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="bagus2x.github.io/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="/categories/docker/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
