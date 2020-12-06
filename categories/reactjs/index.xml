@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ReactJS on Bagus2x</title>
-    <link>Bagus2x.github.io/categories/reactjs/</link>
+    <link>bagus2x.github.io/categories/reactjs/</link>
     <description>Recent content in ReactJS on Bagus2x</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="Bagus2x.github.io/categories/reactjs/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="bagus2x.github.io/categories/reactjs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
