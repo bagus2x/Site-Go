@@ -6,7 +6,16 @@
     <description>Recent content in Pages on Bagus2x</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Halo nama saya bagus. Blog ini ditujukan sebagai alat bantu untuk mempelajari teknologi-teknologi yang menarik menurut saya.</description>
+    </item>
+    
     <item>
       <title>Archives</title>
       <link>/archives/</link>
@@ -14,15 +23,6 @@
       
       <guid>/archives/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Halo nama saya bagus. Blog ini ditujukan sebagai alat bantu untuk belajar mempelajari teknologi yang menarik buat saya.</description>
     </item>
     
     <item>
