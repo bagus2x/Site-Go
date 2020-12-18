@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on Bagus2x</title>
-    <link>/categories/docker/</link>
-    <description>Recent content in Docker on Bagus2x</description>
+    <title>dbms on Bagus2x</title>
+    <link>/tags/dbms/</link>
+    <description>Recent content in dbms on Bagus2x</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/dbms/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mengoneksikan MSSQL Extension VS Code dan SQL Server di Ubuntu dengan Docker</title>
       <link>/p/mengoneksikan-mssql-extension-vs-code-dan-sql-server-di-ubuntu-dengan-docker/</link>
