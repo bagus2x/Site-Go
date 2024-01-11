@@ -6,9 +6,9 @@
 
 ### **`Authors`**
 
-- **Tubagus Saifulloh**
-- **Cahya Wahyu Murti**
-- **Lanang Nazula Hadialloh**
+- **[Tubagus](#)**
+- **[Cahya](#)**
+- **[Lanang](#)**
 
 ---
 
