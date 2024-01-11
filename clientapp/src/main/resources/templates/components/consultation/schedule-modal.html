@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Schedule</title>
+	</head>
+	<body>
+		<div
+			class="modal fade"
+			id="modal-schedule"
+			tabindex="-1"
+			aria-labelledby="modal-schedule"
+			aria-hidden="true"
+			th:fragment="modal"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="title-schedule">Schedule Consultation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label class="form-label" for="select-schedule-consultant">Consultant</label>
+							<div class="input-group input-group-merge d-flex">
+								<select class="select2 form-select" aria-label="Default select example" id="select-schedule-consultant">
+									<option selected disabled value="">Open this select menu</option>
+								</select>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-schedule-venue">Venue</label>
+							<div class="input-group input-group-merge">
+								<span class="input-group-text"><i class="bx bx-building"></i></span>
+								<input
+									type="text"
+									id="input-schedule-venue"
+									class="form-control"
+									placeholder="APL Tower Lt. 2, https://meet.google.com/xxx"
+								/>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-schedule-time">Time</label>
+							<div class="input-group input-group-merge">
+								<span class="input-group-text"><i class="bx bx-calendar-x"></i></span>
+								<input
+									type="text"
+									id="input-schedule-time"
+									class="form-control"
+								/>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-schedule-duration">Duration in Minutes</label>
+							<div class="input-group input-group-merge">
+								<span class="input-group-text"><i class="bx bx-time-five"></i></span>
+								<input
+									type="text"
+									id="input-schedule-duration"
+									class="form-control"
+									placeholder="120 Minutes"
+								/>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label" for="input-schedule-description">Description</label>
+							<div class="input-group input-group-merge">
+							<span class="input-group-text d-flex align-items-start text-start"><i
+								class="bx bx-building mt-1"
+							></i></span>
+								<textarea
+									type="text"
+									id="input-schedule-description"
+									class="form-control"
+								></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary" id="btn-schedule">
+						<span
+							class="spinner-border spinner-border-sm text-primary me-2 d-none"
+							role="status"
+							id="spinner-add-employee"
+						>
+							<span class="visually-hidden">Loading...</span>
+						</span>
+							<span>Schedule</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

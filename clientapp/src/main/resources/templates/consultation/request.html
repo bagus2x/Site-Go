@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/dashboard-container}"
+>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Consultation Request</title>
+		<link rel="stylesheet" th:href="@{/css/consultation/report.css}">
+	</head>
+	<body>
+		<main
+			class="container-xxl flex-grow-1 container-p-y"
+			layout:fragment="content"
+		>
+			<div class="d-flex justify-content-between align-items-start">
+				<h4 class="fw-bold py-3 mb-4">
+					<span><span class="text-muted fw-light">Consultation /</span> Request</span>
+				</h4>
+				<form
+					th:action="@{/consultation/request}"
+					method="post"
+					id="form-request"
+				>
+					<button
+						class="dt-button create-new btn btn-primary"
+						tabindex="0"
+						type="submit"
+						id="btn-request"
+						th:disabled="${hasOngoingConsultation}"
+					>
+					<span>
+						<i class="bx bx-paper-plane me-sm-1"></i>
+						<span class="d-none d-sm-inline-block">Request</span>
+					</span>
+					</button>
+				</form>
+			</div>
+
+			<!-- Accordion -->
+			<div class="row">
+				<div class="px-3">
+					<div
+						class="alert alert-primary alert-dismissible"
+						role="alert"
+						th:if="${hasOngoingConsultation}"
+					>
+						Your request has been sent. Please wait the administrator to proceed your request!
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</div>
+
+				<!--No Request Sent -->
+				<div
+					class="container-xxl container-p-y w-100 d-flex justify-content-center flex-column align-items-center"
+					th:if="${consultations.size() == 0}"
+				>
+					<div class="misc-wrapper d-flex justify-content-center flex-column align-items-center">
+						<div class="mt-4">
+							<img
+								th:src="@{/img/illustrations/girl-doing-yoga-light.png}"
+								alt="girl-doing-yoga-light"
+								width="500"
+								class="img-fluid mb-4"
+								data-app-dark-img="illustrations/girl-doing-yoga-dark.png"
+								data-app-light-img="illustrations/girl-doing-yoga-light.png"
+							/>
+						</div>
+						<h2 class="mb-2 mx-2">No Request Sent!</h2>
+						<p class="mx-2">You have never sent a request for consultation</p>
+					</div>
+				</div>
+
+				<div class="accordion mt-3" id="accordionExample">
+					<div th:each="consultation, iter : ${consultations}" class="card accordion-item active">
+						<h2 class="accordion-header" th:id="${'heading' + consultation.id}">
+							<button
+								type="button"
+								class="accordion-button"
+								data-bs-toggle="collapse"
+								th:data-bs-target="${'#accordion-' + consultation.id}"
+								aria-expanded="true"
+								aria-controls="accordionOne"
+							>
+									<span class="d-flex flex-column">
+										<span th:text="${consultation.counselee.name}">John</span>
+										<span
+											th:text="${#temporals.format(consultation.createdAt, 'dd MMM yyyy HH:mm')}"
+										>17 October 2023 23:20</span>
+									</span>
+							</button>
+						</h2>
+
+						<div
+							th:id="${'accordion-' + consultation.id}"
+							class="accordion-collapse collapse"
+							th:classappend="${iter.index == 0 ? 'show': ''}"
+							data-bs-parent="#accordionExample"
+						>
+							<div class="accordion-body">
+								<div
+									class="d-flex justify-content-between align-items-center"
+								>
+									<div class="d-flex flex-column">
+                      <span class="lead fw-normal">
+												<th:block th:switch="${consultation.status.name}">
+													<th:block th:case="'WAITING'">Your request has been sent.</th:block>
+													<th:block th:case="'VALIDATED'">Your request has been verified.</th:block>
+													<th:block th:case="'REJECTED'">Your request has been rejected</th:block>
+													<th:block th:case="'SCHEDULED'">You have an appointment. Please check!</th:block>
+													<th:block th:case="'SCHEDULED'">You have been done with your consultation</th:block>
+													<th:block th:case="*">No Message</th:block>
+												</th:block>
+											</span>
+										<span class="text-muted small">
+												<th:block th:switch="${consultation.status.name}">
+													<th:block th:case="'WAITING'">
+														by System on
+														<th:block
+															th:text="${#temporals.format(consultation.status.createdAt, 'dd MMM, yyyy')}"
+														></th:block>
+													</th:block>
+													<th:block th:case="'VALIDATED'">
+														by <th:block
+														th:text="${consultation.histories.size() == 2 ? consultation.histories.get(1).editor.name : 'unknown'}"
+													>System</th:block> on
+														<th:block
+															th:text="${#temporals.format(consultation.status.createdAt, 'dd MMM, yyyy')}"
+														></th:block>
+													</th:block>
+													<th:block th:case="'REJECTED'">
+														by <th:block
+														th:text="${consultation.histories.size() == 2 ? consultation.histories.get(1).editor.name : 'unknown'}"
+													>System</th:block> on
+														<th:block
+															th:text="${#temporals.format(consultation.status.createdAt, 'dd MMM, yyyy')}"
+														></th:block>
+													</th:block>
+													<th:block th:case="'SCHEDULED'">
+														by <th:block
+														th:text="${consultation.histories.size() == 3 ? consultation.histories.get(2).editor.name : 'unknown'}"
+													>System</th:block> on
+														<th:block
+															th:text="${#temporals.format(consultation.status.createdAt, 'dd MMM, yyyy')}"
+														></th:block>
+													</th:block>
+													<th:block th:case="'DONE'">
+														by <th:block
+														th:text="${consultation.histories.size() == 4 ? consultation.histories.get(3).editor.name : 'unknown'}"
+													>System</th:block> on
+														<th:block
+															th:text="${#temporals.format(consultation.status.createdAt, 'dd MMM, yyyy')}"
+														></th:block>
+													</th:block>
+												</th:block>
+											</span>
+									</div>
+									<div>
+										<div class="comment-actions">
+											<button
+												class="btn icon icon-left btn-primary me-2 text-nowrap"
+												data-bs-toggle="modal"
+												data-bs-target="#modal-detail"
+												aria-controls="modal"
+												th:onclick="|showDetail(${consultation.id})|"
+											>
+												<i class='bx bxs-report'></i> Detail
+											</button>
+											<button
+												class="btn icon icon-left btn-primary me-2 text-nowrap"
+												data-bs-toggle="modal"
+												data-bs-target="#modal-report"
+												aria-controls="modal"
+												th:disabled="${consultation.status.name != 'DONE'}"
+												th:onclick="|showReport(${consultation.id})|"
+											>
+												<i class='bx bxs-report'></i> Report
+											</button>
+										</div>
+									</div>
+								</div>
+								<hr class="my-4"/>
+
+								<!-- Date -->
+								<div
+									class="d-flex flex-row justify-content-between align-items-center"
+								>
+									<div style="min-width: 80px" class="text-center d-flex flex-column align-items-start">
+											<span
+												th:if="${consultation.histories.size() >= 1}"
+												th:text="${#temporals.format(consultation.histories.get(0).createdAt, 'dd MMM')}"
+											>1 Nov</span>
+									</div>
+									<div style="min-width: 80px" class="text-center d-flex flex-column justify-content-center">
+											<span
+												th:if="${consultation.histories.size() >= 2}"
+												th:text="${#temporals.format(consultation.histories.get(1).createdAt, 'dd MMM')}"
+											>1 Nov</span>
+									</div>
+									<div style="min-width: 80px" class="text-center d-flex flex-column justify-content-center">
+											<span
+												th:if="${consultation.histories.size() >= 3}"
+												th:text="${#temporals.format(consultation.histories.get(2).createdAt, 'dd MMM')}"
+											>1 Nov</span>
+									</div>
+									<div style="min-width: 80px" class="text-center d-flex flex-column align-items-end">
+											<span
+												th:if="${consultation.histories.size() >= 4}"
+												th:text="${#temporals.format(consultation.histories.get(3).createdAt, 'dd MMM')}"
+											>1 Nov</span>
+									</div>
+								</div>
+
+								<!-- Stepper DOT -->
+								<div
+									class="d-flex flex-row justify-content-between align-items-center align-content-center"
+								>
+										<span
+											th:class="${consultation.status.name == 'WAITING' ? 'd-flex justify-content-center align-items-center big-dot dot' : 'dot'}"
+										>
+											<th:block th:if="${consultation.status.name == 'WAITING'}">
+												<i class="bx bx-check text-white"></i>
+											</th:block>
+										</span>
+									<hr class="flex-fill track-line"/>
+									<span
+										th:class="${consultation.status.name == 'VALIDATED' || consultation.status.name == 'REJECTED' ? 'd-flex justify-content-center align-items-center big-dot dot' : 'dot'}"
+									>
+											<th:block
+												th:if="${consultation.status.name == 'VALIDATED' || consultation.status.name == 'REJECTED'}"
+											>
+												<i class="bx bx-check text-white"></i>
+											</th:block>
+										</span>
+									<hr class="flex-fill track-line"/>
+									<span
+										th:class="${consultation.status.name == 'SCHEDULED' ? 'd-flex justify-content-center align-items-center big-dot dot' : 'dot'}"
+									>
+											<th:block th:if="${consultation.status.name == 'SCHEDULED'}">
+												<i class="bx bx-check text-white"></i>
+											</th:block>
+										</span>
+									<hr class="flex-fill track-line"/>
+									<span
+										th:class="${consultation.status.name == 'DONE' ? 'd-flex justify-content-center align-items-center big-dot dot' : 'dot'}"
+									>
+											<th:block th:if="${consultation.status.name == 'DONE'}">
+												<i class="bx bx-check text-white"></i>
+											</th:block>
+										</span>
+								</div>
+
+								<!-- Status -->
+								<div
+									class="d-flex flex-row justify-content-between align-items-center"
+								>
+									<div class="d-flex flex-column align-items-start">
+										<span>Waiting</span>
+									</div>
+									<div class="d-flex flex-column justify-content-center">
+										<span th:if="${consultation.histories.size() < 2}">Validated/<br>Rejected</span>
+										<span
+											th:if="${consultation.histories.size() >= 2}"
+											th:text="${consultation.histories.get(1).id.consultationStatus.name.toLowerCase()}"
+											class="text-capitalize"
+										>
+												Validated/Rejected
+											</span>
+									</div>
+									<div
+										class="d-flex flex-column justify-content-center"
+									>
+										<span>Scheduled</span>
+									</div>
+									<div class="d-flex flex-column align-items-end">
+										<span>Done</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--/ Accordion -->
+
+			<!--/ Advance Styling Options -->
+			<div th:replace="components/consultation/report-modal :: modal"></div>
+			<div th:replace="components/consultation/detail-modal :: modal"></div>
+		</main>
+
+		<th:block layout:fragment="scripts">
+			<script th:src="@{/vendor/libs/dayjs/dayjs.min.js}"></script>
+			<script th:src="@{/vendor/libs/dayjs/duration.js}"></script>
+			<script th:src="@{/js/consultation/detail.js}"></script>
+			<script th:src="@{/js/consultation/request.js}"></script>
+		</th:block>
+	</body>
+</html>

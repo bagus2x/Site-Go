@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/dashboard-container}"
+>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Consultation Schedule</title>
+		<link rel="stylesheet" th:href="@{/vendor/libs/fullcalendar/fullcalendar.css}">
+		<link rel="stylesheet" th:href="@{/css/consultation/report.css}">
+	</head>
+	<body>
+		<main
+			class="container-xxl flex-grow-1 container-p-y"
+			layout:fragment="content"
+		>
+			<div class="card">
+				<div class="card-body">
+					<div id="calendar"></div>
+				</div>
+			</div>
+
+			<div th:replace="components/consultation/detail-modal :: modal"></div>
+			<div th:replace="components/consultation/report-modal :: modal"></div>
+		</main>
+
+		<th:block layout:fragment="scripts">
+			<script th:src="@{/vendor/libs/dayjs/dayjs.min.js}"></script>
+			<script th:src="@{/vendor/libs/dayjs/duration.js}"></script>
+			<script th:src="@{/vendor/libs/fullcalendar/fullcalendar.min.js}"></script>
+			<script th:src="@{/vendor/libs/fullcalendar/google-calendar.js}"></script>
+			<script th:src="@{/js/consultation/detail.js}"></script>
+			<script th:src="@{/js/consultation/schedule.js}"></script>
+		</th:block>
+	</body>
+</html>

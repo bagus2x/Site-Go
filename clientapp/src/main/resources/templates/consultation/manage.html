@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html
+	lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/dashboard-container}"
+>
+	<head>
+		<meta charset="UTF-8">
+		<title>Consultation Manage</title>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+		<link rel="stylesheet" th:href="@{/vendor/libs/quill/typography.css}">
+		<link rel="stylesheet" th:href="@{/vendor/libs/quill/katex.css}">
+		<link rel="stylesheet" th:href="@{/vendor/libs/quill/editor.css}">
+		<link rel="stylesheet" th:href="@{/vendor/libs/flatpickr/flatpickr.css}">
+		<link rel="stylesheet" th:href="@{/vendor/libs/select2/select2.css}">
+		<link rel="stylesheet" th:href="@{/css/consultation/manage.css}">
+		<link rel="stylesheet" th:href="@{/css/consultation/report.css}">
+	</head>
+	<body>
+		<main
+			class="container-xxl flex-grow-1 container-p-y position-relative"
+			style="overflow-x: hidden"
+			layout:fragment="content"
+		>
+			<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Consultation /</span> Manage</h4>
+			<div class="card">
+				<div class="card-header row">
+					<div class="col-10 d-flex align-items-center">
+						<h5 class="mb-0">List of Consultation Request</h5>
+					</div>
+					<div class="col-2 d-flex align-items-center justify-content-end">
+						<div id="dropdown-export">
+							<button
+								class="dt-button create-new btn btn-primary"
+								tabindex="0"
+								type="button"
+								id="btn-export"
+								data-bs-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								<span>
+									<i class="bx bx-download me-sm-1"></i>
+									<span class="d-none d-sm-inline-block">Export</span>
+								</span>
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="btn-export">
+							</ul>
+						</div>
+					</div>
+					<label id="filter-status">
+						<select id="select-status" class="select2 form-control status-dropdown">
+							<option value="">All</option>
+							<option value="WAITING">Waiting</option>
+							<option value="REJECTED">Rejected</option>
+							<option value="VALIDATED">Validated</option>
+							<option value="SCHEDULED">Scheduled</option>
+							<option value="DONE">Done</option>
+						</select>
+					</label>
+				</div>
+
+				<div class="table-responsive text-nowrap">
+					<table class="table border-top border-bottom" id="table-consultation">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Counselee</th>
+								<th>Consultant</th>
+								<th>Status</th>
+								<th>Time</th>
+								<th>Requested At</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody class="table-border-bottom-0">
+						</tbody>
+					</table>
+				</div>
+
+				<div th:replace="components/consultation/detail-modal :: modal"></div>
+				<div th:replace="components/consultation/rejection-modal :: modal"></div>
+				<div th:replace="components/consultation/schedule-modal :: modal"></div>
+				<div th:replace="components/consultation/write-report-modal :: modal"></div>
+				<div th:replace="components/consultation/report-modal :: modal"></div>
+			</div>
+		</main>
+
+		<th:block layout:fragment="scripts">
+			<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+			<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+			<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+			<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+			<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+			<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+			<script th:src="@{/vendor/libs/select2/select2.js}"></script>
+			<script th:src="@{/vendor/libs/flatpickr/flatpickr.js}"></script>
+			<script th:src="@{/vendor/libs/dayjs/dayjs.min.js}"></script>
+			<script th:src="@{/vendor/libs/dayjs/duration.js}"></script>
+			<script th:src="@{/vendor/libs/quill/katex.js}"></script>
+			<script th:src="@{/vendor/libs/quill/quill.js}"></script>
+			<script th:src="@{/js/consultation/detail.js}"></script>
+			<script th:src="@{/js/consultation/manage.js}"></script>
+		</th:block>
+	</body>
+</html>

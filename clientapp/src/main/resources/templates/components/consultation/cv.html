@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>CV</title>
+	</head>
+	<body>
+		<div
+			id="cv-part"
+			class="content"
+			role="tabpanel"
+			aria-labelledby="cv-part-trigger"
+			th:fragment="cv"
+		>
+			<canvas
+				id="canvas-cv"
+				class="w-100 h-100 rounded-3 border"
+			>
+			</canvas>
+			<div class="d-flex justify-content-between mt-3">
+				<button
+					class="btn btn-primary btn-previous"
+					type="button"
+				>
+					Previous
+				</button>
+				<div>
+					<label class="btn btn-primary position-relative">
+						<i class='bx bx-upload'></i>
+						<span>
+							Upload
+						</span>
+						<input
+							type="file"
+							class="position-absolute cursor-pointer"
+							id="input-cv"
+							name="cv"
+							style="width: 100%;height: 100%; left: 0;top: 0;opacity: 0"
+						>
+					</label>
+					<button
+						class="btn btn-outline-primary"
+						type="button"
+					>
+						<span>
+						Reset
+					</span>
+					</button>
+				</div>
+				<button
+					class="btn btn-primary btn-next"
+					type="button"
+				>
+					Next
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

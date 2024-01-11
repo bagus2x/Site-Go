@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Reject</title>
+	</head>
+	<body>
+		<div
+			class="modal fade"
+			id="modal-rejection"
+			tabindex="-1"
+			aria-labelledby="modal-rejection"
+			aria-hidden="true"
+			th:fragment="modal"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="title-rejection">Reject Consultation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-3">
+							<label class="form-label" for="input-rejection-description">Description</label>
+							<div class="input-group input-group-merge">
+								<textarea
+									type="text" class="form-control" id="input-rejection-description"
+									placeholder="Description of rejection"
+								></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary" id="btn-reject">
+							<span
+								class="spinner-border spinner-border-sm text-primary me-2 d-none"
+								role="status"
+								id="spinner-add-employee"
+							>
+								<span class="visually-hidden">Loading...</span>
+							</span>
+							<span>Reject</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

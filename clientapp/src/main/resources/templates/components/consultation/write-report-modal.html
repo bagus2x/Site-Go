@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Write Report</title>
+	</head>
+	<body>
+		<div
+			class="modal fade"
+			id="modal-write-report"
+			tabindex="-1"
+			aria-labelledby="modal-write-report"
+			aria-hidden="true"
+			th:fragment="modal"
+		>
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="title-write-report">Write report</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<label class="form-label">Description</label>
+						<div class="input-group input-group-merge" id="editor-report">
+							<div id="full-editor"></div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button id="btn-save-report" type="button" class="btn btn-primary">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

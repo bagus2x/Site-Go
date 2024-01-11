@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.w3.org/1999/xhtml"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+      id="layout-navbar"
+      th:fragment="navbar"
+    >
+      <div
+        class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"
+      >
+        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+          <i class="bx bx-menu bx-sm"></i>
+        </a>
+      </div>
+
+      <div
+        class="navbar-nav-right d-flex align-items-center"
+        id="navbar-collapse"
+      >
+        <!-- Search -->
+        <div class="navbar-nav align-items-center">
+          <div class="nav-item d-flex align-items-center">
+            <i class="bx bx-search fs-4 lh-0"></i>
+            <input
+              type="text"
+              class="form-control border-0 shadow-none"
+              placeholder="Search..."
+              aria-label="Search..."
+            />
+          </div>
+        </div>
+
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+          <!-- User -->
+          <li class="nav-item navbar-dropdown dropdown-user dropdown">
+            <a
+              class="nav-link dropdown-toggle hide-arrow"
+              th:href="@{/profile}"
+              data-bs-toggle="dropdown"
+            >
+              <div class="avatar avatar-online">
+                <img
+                  th:src="${#authentication.details.photo != null ? #authentication.details.photo : 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=' + #authentication.details.name}"
+                  alt
+                  class="w-px-40 h-px-40 rounded-circle"
+                />
+              </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" th:href="@{/profile}">
+                  <div class="d-flex">
+                    <div class="flex-grow-1">
+                      <span
+                        class="fw-semibold d-block text-capitalize"
+                        th:text="${#authentication.details.name}"
+                        >John Doe</span
+                      >
+                      <div class="d-flex gap-1">
+												<small
+													th:each="role, iter : ${#authentication.details.user.roles}"
+													class="text-truncate text-muted text-capitalize d-inline"
+													th:text="${role.name.toLowerCase() + (iter.index != iter.size - 1 ? ' • ' : '')}"
+												>Admin</small>
+											</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" th:href="@{/profile}">
+                  <i class="bx bx-user me-2"></i>
+                  <span class="align-middle">My Profile</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" th:href="@{/profile/settings}">
+                  <i class="bx bx-cog me-2"></i>
+                  <span class="align-middle">Settings</span>
+                </a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <form
+                  class="dropdown-item"
+                  th:action="@{/logout}"
+                  method="post"
+                >
+                  <i class="bx bx-power-off me-2"></i>
+                  <button
+                    type="submit"
+                    class="align-middle border-0 m-0 p-0 w-auto overflow-visible bg-transparent"
+                    style="color: inherit; font: inherit; line-height: normal"
+                  >
+                    Log Out
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+
+		<!-- Menu -->
+		<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" th:fragment="sidebar">
+			<div class="app-brand demo">
+				<a th:href="@{/}" class="app-brand-link">
+					<span class="app-brand-logo demo">
+						<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.81 48.33">
+							<defs>
+								<style>
+									.cls-1 {
+										fill: #8696fe;
+									}
+
+									.cls-1, .cls-2 {
+										stroke-width: 0;
+									}
+
+									.cls-2 {
+										fill: #ad33ff;
+										opacity: .81;
+									}
+								</style>
+							</defs>
+							<g id="Layer_1-2" data-name="Layer 1">
+							<path
+								class="cls-1" d="m47.26,0l-15.44,30.52H12.25C3.33,27.24,0,19.91,0,13.36,0,6.81,5.64,1.33,13.45,0h33.82Z"
+							/>
+							<path
+								class="cls-2"
+								d="m2.67,48.33l15.18-30.65,19.57-.16c8.95,3.2,12.34,10.51,12.4,17.06.06,6.55-5.53,12.07-13.33,13.47l-33.81.28Z"
+							/>
+							</g>
+					</svg>
+					</span>
+					<span class="app-brand-text demo menu-text fw-bolder ms-2">Site Go!</span>
+				</a>
+
+				<a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+					<i class="bx bx-chevron-left bx-sm align-middle"></i>
+				</a>
+			</div>
+
+			<div class="menu-inner-shadow"></div>
+
+			<ul class="menu-inner py-1">
+
+				<!-- Dashboard -->
+				<li
+					sec:authorize="hasAnyRole('ADMIN', 'CONSULTANT')"
+					th:class="${#httpServletRequest.requestURI.contains('/dashboard') ? 'menu-item active' : 'menu-item'}"
+				>
+					<a th:href="@{/dashboard}" class="menu-link">
+						<i class="menu-icon tf-icons bx bx-home-circle"></i>
+						<div data-i18n="Analytics">Dashboard</div>
+					</a>
+				</li>
+
+				<!-- Consultation -->
+				<li
+					th:class="${#httpServletRequest.requestURI.contains('/consultation') ? 'menu-item active open' : 'menu-item'}"
+				>
+					<a href="javascript:void(0);" class="menu-link menu-toggle">
+						<i class="menu-icon tf-icons bx bx-user-voice"></i>
+						<div data-i18n="Layouts">Consultation</div>
+					</a>
+
+					<ul class="menu-sub">
+						<li
+							sec:authorize="hasAnyRole('EMPLOYEE')"
+							th:class="${#httpServletRequest.requestURI.contains('/consultation/request') ? 'menu-item active' : 'menu-item'}"
+						>
+							<a th:href="@{/consultation/request}" class="menu-link">
+								<div data-i18n="Without menu">Request</div>
+							</a>
+						</li>
+						<li
+							sec:authorize="hasAnyRole('ADMIN', 'CONSULTANT')"
+							th:class="${#httpServletRequest.requestURI.contains('/consultation/manage') ? 'menu-item active' : 'menu-item'}"
+						>
+							<a th:href="@{/consultation/manage}" class="menu-link">
+								<div data-i18n="Without menu">Manage</div>
+							</a>
+						</li>
+						<li
+							sec:authorize="hasAnyRole('ADMIN', 'CONSULTANT')"
+							th:class="${#httpServletRequest.requestURI.contains('/consultation/schedule') ? 'menu-item active' : 'menu-item'}"
+						>
+							<a th:href="@{/consultation/schedule}" class="menu-link">
+								<div data-i18n="Without navbar">Schedule</div>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- Employee -->
+				<li
+					sec:authorize="hasAnyRole('ADMIN', 'CONSULTANT')"
+					th:class="${#httpServletRequest.requestURI.contains('/organization') ? 'menu-item active open' : 'menu-item'}"
+				>
+					<a href="javascript:void(0);" class="menu-link menu-toggle">
+						<i class="menu-icon tf-icons bx bx-building"></i>
+						<div data-i18n="Layouts">Organization</div>
+					</a>
+
+					<ul class="menu-sub">
+						<li
+							th:class="${#httpServletRequest.requestURI.contains('/organization/role') ? 'menu-item active' : 'menu-item'}"
+						>
+							<a th:href="@{/organization/role}" class="menu-link">
+								<div data-i18n="Without menu">Role</div>
+							</a>
+						</li>
+						<li
+							th:class="${#httpServletRequest.requestURI.contains('/organization/employee') ? 'menu-item active' : 'menu-item'}"
+						>
+							<a th:href="@{/organization/employee}" class="menu-link">
+								<div data-i18n="Without navbar">Employee</div>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- Profile Account -->
+				<li class="menu-header small text-uppercase">
+					<span class="menu-header-text">Other</span>
+				</li>
+				<li th:class="${#httpServletRequest.requestURI.startsWith('/profile') ? 'menu-item active open' : 'menu-item'}">
+					<a href="javascript:void(0);" class="menu-link menu-toggle">
+						<i class="menu-icon tf-icons bx bx-user"></i>
+						<div data-i18n="Account Settings">Account</div>
+					</a>
+					<ul class="menu-sub">
+						<li th:class="${#httpServletRequest.requestURI.equals('/profile') ? 'menu-item active' : 'menu-item'}">
+							<a th:href="@{/profile}" class="menu-link">
+								<div data-i18n="Profile">Profile</div>
+							</a>
+						</li>
+						<li
+							th:class="${#httpServletRequest.requestURI.equals('/profile/settings') ? 'menu-item active' : 'menu-item'}"
+						>
+							<a th:href="@{/profile/settings}" class="menu-link">
+								<div data-i18n="History">Settings</div>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</aside>
+		<!-- / Menu -->
+	</body>
+</html>

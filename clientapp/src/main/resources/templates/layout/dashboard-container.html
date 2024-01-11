@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<html
+	lang="en"
+	class="light-style layout-menu-fixed"
+	dir="ltr"
+	data-theme="theme-default"
+	data-assets-path="/"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+		<meta charset="utf-8"/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+		/>
+
+		<title>SiteGo!</title>
+
+		<meta name="description" content=""/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" th:href="@{/img/favicon/logosg.svg}"/>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Inject CSRF -->
+		<meta name="_csrf" th:content="${_csrf.token}">
+		<meta name="_csrf_header" th:content="${_csrf.headerName}">
+
+		<!-- Icons. Uncomment required icon fonts -->
+		<link rel="stylesheet" th:href="@{/vendor/fonts/boxicons.css}"/>
+
+		<!-- Core CSS -->
+		<link rel="stylesheet" th:href="@{/vendor/css/core.css}"/>
+		<link rel="stylesheet" th:href="@{/vendor/css/theme-default.css}"/>
+		<link rel="stylesheet" th:href="@{/vendor/libs/block-ui/spinkit.css}">
+		<link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+		<!-- Vendors CSS -->
+		<link rel="stylesheet" th:href="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}"/>
+
+		<!-- Page CSS -->
+
+		<!-- Helpers -->
+		<script th:src="@{/vendor/js/helpers.js}"></script>
+
+		<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+		<!--? Config: Mandatory theme config file contains global vars & default theme options, Set your preferred theme option in this file.  -->
+		<script th:src="@{/js/config.js}"></script>
+	</head>
+
+	<body>
+		<!-- Layout wrapper -->
+		<div class="layout-wrapper layout-content-navbar">
+			<div class="layout-container">
+
+				<!-- Menu -->
+				<aside th:replace="components/layout/sidebar :: sidebar"></aside>
+
+				<!-- Layout container -->
+				<div class="layout-page">
+
+					<!-- Navbar -->
+					<aside th:replace="components/layout/navbar :: navbar"></aside>
+
+					<!-- Content wrapper -->
+					<div class="content-wrapper">
+
+						<!-- Content -->
+						<main class="container-xxl flex-grow-1 container-p-y" layout:fragment="content"></main>
+
+						<!-- Footer -->
+						<footer th:replace="components/layout/footer :: footer"></footer>
+
+						<div class="content-backdrop fade"></div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="layout-overlay layout-menu-toggle"></div>
+		</div>
+
+		<!-- Core JS -->
+		<script th:src="@{/vendor/libs/jquery/jquery.js}"></script>
+		<script th:src="@{/vendor/libs/popper/popper.js}"></script>
+		<script th:src="@{/vendor/js/bootstrap.js}"></script>
+		<script th:src="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.js}"></script>
+		<script th:src="@{/vendor/libs/sweet-alert/sweetalert2.js}"></script>
+		<script th:src="@{/vendor/js/menu.js}"></script>
+		<script th:src="@{/vendor/libs/block-ui/block-ui.js}"></script>
+
+		<!-- Main JS -->
+		<script th:src="@{/js/main.js}"></script>
+
+		<!-- Page JS -->
+		<script th:inline="javascript">
+			const profile = [[${#authentication.details}]]
+			window.profile = profile
+			window.hasRoleAdmin = profile.user.roles.some((role) => role.name === 'ADMIN')
+			window.hasRoleConsultant = profile.user.roles.some((role) => role.name === 'CONSULTANT')
+			window.hasRoleEmployee = profile.user.roles.some((role) => role.name === 'EMPLOYEE')
+		</script>
+
+		<script th:src="@{/js/add-csrf.js}"></script>
+		<th:block layout:fragment="scripts"></th:block>
+	</body>
+</html>

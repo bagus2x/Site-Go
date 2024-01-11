@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	class="light-style customizer-hide"
+	dir="ltr"
+	data-theme="theme-default"
+	xmlns:th="http://www.thymeleaf.org"
+>
+	<head>
+		<meta charset="utf-8"/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+		/>
+
+		<title>Login</title>
+
+		<meta name="description" content=""/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" th:href="@{/img/favicon/logosg.svg}"/>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Icons. Uncomment required icon fonts -->
+		<link rel="stylesheet" th:href="@{/vendor/fonts/boxicons.css}"/>
+
+		<!-- Core CSS -->
+		<link rel="stylesheet" th:href="@{/vendor/css/core.css}"/>
+		<link rel="stylesheet" th:href="@{/vendor/css/theme-default.css}"/>
+		<link rel="stylesheet" th:href="@{/vendor/libs/block-ui/spinkit.css}"/>
+		<link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+		<!-- Vendors CSS -->
+		<link rel="stylesheet" th:href="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}"/>
+
+		<!-- Page CSS -->
+		<!-- Page -->
+		<link rel="stylesheet" th:href="@{/vendor/css/pages/page-auth.css}"/>
+		<!-- Helpers -->
+		<script th:src="@{/vendor/js/helpers.js}"></script>
+
+		<!--!
+		Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+		<!--?
+		Config:
+		Mandatory theme config file contains global vars & default theme options,
+		Set your preferred theme option in this file.  -->
+		<script th:src="@{/js/config.js}"></script>
+
+	</head>
+
+	<body>
+		<!-- Content -->
+
+		<div class="container-xxl">
+			<div class="authentication-wrapper authentication-basic container-p-y">
+				<div class="authentication-inner">
+					<!-- Register -->
+					<div class="card">
+						<div class="card-body">
+							<!-- Logo -->
+							<div class="app-brand justify-content-center">
+								<a th:href="@{/}" class="app-brand-link gap-2">
+                  <span class="app-brand-logo demo">
+										<?xml version="1.0" encoding="UTF-8"?>
+										<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.81 48.33">
+											<defs>
+											<style>
+												.cls-1 {
+													fill: #8696fe;
+												}
+
+												.cls-1, .cls-2 {
+													stroke-width: 0;
+												}
+
+												.cls-2 {
+													fill: #ad33ff;
+													opacity: .81;
+												}
+											</style>
+											</defs>
+											<g id="Layer_1-2" data-name="Layer 1">
+											<path
+												class="cls-1"
+												d="m47.26,0l-15.44,30.52H12.25C3.33,27.24,0,19.91,0,13.36,0,6.81,5.64,1.33,13.45,0h33.82Z"
+											/>
+											<path
+												class="cls-2"
+												d="m2.67,48.33l15.18-30.65,19.57-.16c8.95,3.2,12.34,10.51,12.4,17.06.06,6.55-5.53,12.07-13.33,13.47l-33.81.28Z"
+											/>
+											</g>
+											<g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+												<g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
+													<g id="Icon" transform="translate(27.000000, 15.000000)">
+														<g id="Mask" transform="translate(0.000000, 8.000000)">
+															<mask id="mask-2" fill="white">
+																<use xlink:href="#path-1"></use>
+															</mask>
+															<use fill="#696cff" xlink:href="#path-1"></use>
+															<g id="Path-3" mask="url(#mask-2)">
+																<use fill="#696cff" xlink:href="#path-3"></use>
+																<use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
+															</g>
+															<g id="Path-4" mask="url(#mask-2)">
+																<use fill="#696cff" xlink:href="#path-4"></use>
+																<use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
+															</g>
+														</g>
+														<g
+															id="Triangle"
+															transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
+														>
+															<use fill="#696cff" xlink:href="#path-5"></use>
+															<use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
+														</g>
+													</g>
+												</g>
+											</g>
+										</svg>
+                  </span>
+									<span class="app-brand-text demo text-body fw-bolder">Site Go!</span>
+								</a>
+							</div>
+							<!-- /Logo -->
+							<h4 class="mb-2">Welcome to Site Go! 👋</h4>
+							<p class="mb-4">Please sign in to your account and start the adventure</p>
+
+							<form id="form-login" class="mb-3" th:action="@{/login}" method="POST">
+								<div class="form-group mb-3">
+									<label for="username" class="form-label">Email or Username</label>
+									<input
+										type="text"
+										class="form-control"
+										id="username"
+										name="username"
+										placeholder="Enter your email or username"
+										autofocus
+									/>
+								</div>
+								<div class="mb-3">
+									<div class="form-group form-password-toggle">
+										<div class="d-flex justify-content-between">
+											<label class="form-label" for="password">Password</label>
+										</div>
+										<div class="input-group input-group-merge">
+											<input
+												type="password"
+												id="password"
+												class="form-control"
+												name="password"
+												placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+												aria-describedby="password"
+											/>
+											<span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+										</div>
+									</div>
+									<a href="#">
+										<small>Forgot Password?</small>
+									</a>
+								</div>
+								<div class="mb-3">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" id="remember-me"/>
+										<label class="form-check-label" for="remember-me"> Remember Me </label>
+									</div>
+								</div>
+								<div class="mb-3">
+									<button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+								</div>
+							</form>
+
+							<p class="text-center">
+								<span>Need Help?</span>
+								<a href="mailto:system@yopmail.com">
+									<span>Contact us</span>
+								</a>
+							</p>
+						</div>
+					</div>
+					<!-- /Register -->
+				</div>
+			</div>
+		</div>
+
+		<!-- / Content -->
+
+		<!-- Core JS -->
+		<!-- build:js assets/vendor/js/core.js -->
+		<script th:src="@{/vendor/libs/jquery/jquery.js}"></script>
+		<script th:src="@{/vendor/libs/jquery/jquery.validate.js}"></script>
+		<script th:src="@{/vendor/libs/popper/popper.js}"></script>
+		<script th:src="@{/vendor/js/bootstrap.js}"></script>
+		<script th:src="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.js}"></script>
+		<script th:src="@{/vendor/libs/sweet-alert/sweetalert2.js}"></script>
+		<script th:src="@{/vendor/js/menu.js}"></script>
+		<script th:src="@{/vendor/libs/block-ui/block-ui.js}"></script>
+
+		<!-- endbuild -->
+
+		<!-- Vendors JS -->
+
+		<!-- Main JS -->
+		<script th:src="@{/js/main.js}"></script>
+
+		<!-- Page JS -->
+		<script th:src="@{/js/auth/login.js}"></script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+server:
+  port: 3000
+  baseUrl: http://localhost:8080/api/v1
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dutapanggulu@gmail.com
+    password: yppa kchd wski myud
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+cloudinary:
+  name: dzj27omy0
+  key: 339372337329997
+  secret: KSzKdx3SjVC-HxDCJ9bzUYN9toM

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Form Profile</title>
+	</head>
+	<body>
+		<div
+			id="profile-part"
+			class="content"
+			role="tabpanel"
+			aria-labelledby="profile-part-trigger"
+			th:fragment="form-profile(disableNext)"
+		>
+			<form id="form-profile" method="POST" onsubmit="return false">
+				<div class="row">
+					<div class="mb-3 col-md-6">
+						<label for="input-name" class="form-label">Full Name</label>
+						<input
+							class="form-control"
+							type="text"
+							id="input-name"
+							name="name"
+							th:value="${#authentication.details.name}"
+							autofocus
+						/>
+					</div>
+
+					<div class="mb-3 col-md-6">
+						<label for="select-gender" class="form-label">Gender</label>
+						<select
+							id="select-gender"
+							class="select2 form-select"
+							name="gender"
+						>
+							<option value="" disabled>Select Gender</option>
+							<option
+								value="MALE"
+								th:selected="${#authentication.details.gender == 'MALE'}"
+							>
+								Male
+							</option>
+							<option
+								value="FEMALE"
+								th:selected="${#authentication.details.gender == 'FEMALE'}"
+							>
+								Female
+							</option>
+						</select>
+					</div>
+
+					<div class="col-md-6">
+						<label for="select-status" class="form-label">Status</label>
+						<select
+							id="select-status"
+							class="select2 form-select"
+							name="status"
+						>
+							<option value="" disabled>Select Status</option>
+							<option
+								value="IDLE"
+								th:selected="${#authentication.details.status.name == 'IDLE'}"
+							>
+								Idle
+							</option>
+							<option
+								value="IDLE"
+								th:selected="${#authentication.details.status.name == 'ONSITE'}"
+							>
+								Onsite
+							</option>
+						</select>
+					</div>
+
+					<div class="col-md-6">
+						<label class="form-label" for="input-phone">Phone Number</label>
+						<div class="input-group input-group-merge">
+							<input
+								type="text"
+								id="input-phone"
+								name="phone"
+								class="form-control"
+								th:value="${#authentication.details.phone != null ? #authentication.details.phone : ''}"
+								placeholder="(+62) 202 555 0111"
+							/>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="d-flex justify-content-end mt-3">
+				<button
+					class="btn btn-primary btn-next"
+					th:disabled="${disableNext}"
+					type="button"
+				>
+					Next
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

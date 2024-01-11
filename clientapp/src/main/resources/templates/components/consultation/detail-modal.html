@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Details Consultation</title>
+	</head>
+	<body>
+		<div
+			class="modal fade"
+			id="modal-detail"
+			tabindex="-1"
+			aria-labelledby="modal-detail"
+			aria-hidden="true"
+			th:fragment="modal"
+		>
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Detail Consultation</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body px-0">
+						<table class="table table-striped">
+							<tbody class="table-border-bottom-0">
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-user'></i> <strong>Counselee</strong></td>
+									<td class="col-8" id="td-counselee">-</td>
+								</tr>
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-user-voice'></i> <strong>Consultant</strong></td>
+									<td class="col-8" id="td-consultant">-</td>
+								</tr>
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-stats'></i> <strong>Status</strong></td>
+									<td class="col-8" id="td-status">-</td>
+								</tr>
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-time'></i> <strong>Time</strong></td>
+									<td class="col-8" id="td-time">-</td>
+								</tr>
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-time-five'></i> <strong>Requested At</strong></td>
+									<td class="col-8" id="td-requested-at">-</td>
+								</tr>
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-building'></i> <strong>Venue</strong></td>
+									<td class="col-8" id="td-venue">-</td>
+								</tr>
+								<tr class="d-flex">
+									<td class="col-4"><i class='bx bx-note'></i> <strong>Report</strong></td>
+									<td class="col-8">
+										<button
+											id="btn-report"
+											class="btn btn-sm btn-secondary"
+											data-bs-toggle="modal"
+											data-bs-target="#modal-report"
+											aria-controls="modal"
+										>
+											Show
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div>
+							<div id="timeline-container" class="timeline px-4 block mb-4">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

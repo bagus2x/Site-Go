@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	class="light-style layout-menu-fixed"
+	dir="ltr"
+	data-theme="theme-default"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/dashboard-container}"
+>
+	<head>
+		<title>Profile</title>
+	</head>
+
+	<body>
+		<main
+			class="container-xxl flex-grow-1 container-p-y"
+			layout:fragment="content"
+		>
+			<h4 class="fw-bold py-3 mb-4">
+				<span class="text-muted fw-light">Account /</span> Detail
+			</h4>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card mb-4">
+						<h5 class="card-header">Profile Information</h5>
+						<!-- Account -->
+						<div class="card-body row">
+							<div class="col-md-2 d-flex flex-column gap-3 align-items-start">
+								<img
+									th:src="${profile.photo != null ? profile.photo : 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=' + profile.name}"
+									alt="avatar"
+									class="rounded-circle img-fluid align-self-center"
+									style="width: 150px"
+								/>
+								<h5
+									class="text-center align-items-start w-100"
+									th:text="${profile.name}"
+								>
+									John Doe
+								</h5>
+
+								<button
+									type="button"
+									class="btn btn-primary w-100 align-self-stretch"
+									data-bs-toggle="modal"
+									data-bs-target="#modal-cv"
+								>
+									Show CV
+								</button>
+
+								<!-- Modal CV -->
+								<div th:replace="components/profile/cv :: modal(${profile.cv})"></div>
+							</div>
+							<div class="col-md-10">
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Username</p>
+									</div>
+									<div class="col-sm-9">
+										<p
+											class="text-muted mb-0"
+											th:text="${profile.user.username}"
+										>
+											John
+										</p>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Full Name</p>
+									</div>
+									<div class="col-sm-9">
+										<p
+											class="text-muted mb-0"
+											th:text="${profile.name}"
+										>
+											John Doe
+										</p>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Status</p>
+									</div>
+									<div class="col-sm-9">
+                    <span
+											class="badge rounded-pill"
+											th:classappend="${profile.status == null || profile.status.name == 'IDLE' ? 'bg-label-danger' : 'bg-label-success'}"
+											th:text="${profile.status == null ? 'Idle' : profile.status.name}"
+										>
+                    </span>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Gender</p>
+									</div>
+									<div class="col-sm-9">
+										<p
+											class="text-muted mb-0"
+											th:text="${profile.gender != null ? profile.gender : '-'}"
+										>
+											Male
+										</p>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Phone</p>
+									</div>
+									<div class="col-sm-9">
+										<p
+											class="text-muted mb-0"
+											th:text="${profile.phone != null ? profile.phone : '-'}"
+										>
+											(097) 234-5678
+										</p>
+									</div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-sm-3">
+										<p class="mb-0">Email</p>
+									</div>
+									<div class="col-sm-9">
+										<p
+											class="text-muted mb-0"
+											th:text="${profile.user.email != null ? profile.user.email : '-'}"
+										>
+											example@example.com
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /Account -->
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

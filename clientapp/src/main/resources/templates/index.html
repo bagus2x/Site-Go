@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Landing Page</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/img/favicon/logosg.svg"/>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      rel="stylesheet"
+      th:href="@{/vendor/css/core.css}"
+      class="template-customizer-core-css"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+		<link rel="stylesheet" th:href="@{/vendor/fonts/boxicons.css}"/>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link
+      rel="stylesheet"
+      th:href="@{/vendor/css/theme-default.css}"
+      class="template-customizer-theme-css"
+    />
+    <link href="/vendor/libs/aos/aos.css" rel="stylesheet" />
+    <link href="/vendor/libs/swipper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="/vendor/libs/glitbox/glightbox.min.css" rel="stylesheet" />
+    <link href="/vendor/libs/remix/remixicon.css" rel="stylesheet" />
+    <!-- Template Main CSS File -->
+    <link href="/css/landing-page.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top">
+      <div
+        class="container-fluid container-xl d-flex align-items-center justify-content-between"
+      >
+        <a th:href="@{/dashboard}" class="logo d-flex align-items-center">
+          <img src="/img/favicon/logosg.svg" style="width: 40px; height: 40px;" alt="" />
+        </a>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#home">Home</a></li>
+            <li><a class="nav-link scrollto active" href="#about">About</a></li>
+            <li><a class="nav-link scrollto active" href="#contact">Contact</a></li>
+            <li sec:authorize="!isAuthenticated()">
+              <a th:href="@{/login}" class="getstarted scrollto" style="border: none;">Login</a>
+            </li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="home" class="hero d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">
+              Your Career, Our Expertise. Site Go! Consults for Success.
+            </h1>
+            <!-- <h2 data-aos="fade-up" data-aos-delay="400">
+              "Site Go! - Panduan karier yang andal untuk membimbing Anda menuju kesuksesan. Manfaatkan keahlian dan pengetahuan kami untuk meraih potensi karier terbaik Anda."
+            </h2> -->
+            <div data-aos="fade-up" data-aos-delay="600">
+              <div class="text-center text-lg-start">
+                <a
+                th:href="@{/dashboard}"
+                  class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+                >
+                <span class="p-2">Get Started</span>
+                  <i class='bx bx-right-arrow-alt'></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-6 hero-img"
+            data-aos="zoom-out"
+            data-aos-delay="200"
+          >
+            <img src="/img/hero-img.png" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= Values Section ======= -->
+      <section id="about" class="values">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <p>Our Values</p>
+          </header>
+
+          <div class="row">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="box">
+                <img src="/img/values-1.png" class="img-fluid" alt="" />
+                <h3>Ad cupiditate sed est odio</h3>
+                <p>
+                  Eum ad dolor et. Autem aut fugiat debitis voluptatem
+                  consequuntur sit. Et veritatis id.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="box">
+                <img src="/img/values-2.png" class="img-fluid" alt="" />
+                <h3>Voluptatem voluptatum alias</h3>
+                <p>
+                  Repudiandae amet nihil natus in distinctio suscipit id.
+                  Doloremque ducimus ea sit non.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="col-lg-4 mt-4 mt-lg-0"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
+              <div class="box">
+                <img src="/img/values-3.png" class="img-fluid" alt="" />
+                <h3>Fugit cupiditate alias nobis.</h3>
+                <p>
+                  Quam rem vitae est autem molestias explicabo debitis sint.
+                  Vero aliquid quidem commodi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Values Section -->
+
+      <!-- ======= Testimonials Section ======= -->
+      <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+          <header class="section-header">
+            <p>What they are saying about us</p>
+          </header>
+
+          <div
+            class="testimonials-slider swiper"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                  </div>
+                  <p>
+                    Proin iaculis purus consequat sem cure digni ssim donec
+                    porttitora entum suscipit rhoncus. Accusantium quam,
+                    ultricies eget id, aliquam eget nibh et. Maecen aliquam,
+                    risus at semper.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="/img/testimonials/testimonials-1.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Saul Goodman</h3>
+                    <h4>Ceo &amp; Founder</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <div class="stars">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    </div>
+                  </div>
+                  <p>
+                    Export tempor illum tamen malis malis eram quae irure esse
+                    labore quem cillum quid cillum eram malis quorum velit fore
+                    eram velit sunt aliqua noster fugiat irure amet legam anim
+                    culpa.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="/img/testimonials/testimonials-2.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Sara Wilsson</h3>
+                    <h4>Designer</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+          
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <div class="stars">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    </div>
+                  </div>
+                  <p>
+                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa
+                    multos export minim fugiat minim velit minim dolor enim duis
+                    veniam ipsum anim magna sunt elit fore quem dolore labore
+                    illum veniam.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="/img/testimonials/testimonials-3.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>Matt Brandon</h3>
+                    <h4>Freelancer</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <div class="stars">
+                    <div class="stars">
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAilJREFUSEu1lUto1FAUhv+T3jtSFXShY3feOMiQVHTTjWChKlZ8gAt1VxQFF925E9RtxaWrrrpRsUtBpYjgE4srBS3MZEboJLNMB0EQX00mR2aclpnpPI7YZhOS/P//3ZxzbkLY4IM2OB9iAL8aU7EJnwOUqCA9Todfx5LFiQFxyZ1g4vu1UCKaUCb/YF0Bke98ArC/Ebqgbe/AugGiYPgIOHnRGshj2i686QcRlSjynTkAJ9sAj7VdOPPfgF+lbHaALK9W+rYwjinJDJqi3wuyaorK7lEkfIqZ00SUBrALQO28E8BAl5AqgAqAJQAhMy8RrBAWzWmTe1kfiBVjFDjfwNja75WFz0Nte0MtgGXfmSRgWhjQS8YEvqTswt0WQO1iOXAvE/NMh3pLuT+I6Jwy+acrhjVTFJfc8wyeBUFJUxu6CsMaT9m5j82+jmMaB+4JZn4EQAshRcU4Tnu8cru+6z6IfWeagUkRIKFRncnPd9J2BUS+8w7AQRGAcFMbb0oMqH85d4c/xX0gzGvjjYoB0aJ7CBa/Fa3+r6iqBvU2Glr4LupB5DvXANzuALjTuHd1TRDxWWUKD2WAwHkCxukmscdJciGVKb6v75fF7AhZ1iyAvavzTphRxrsiBVTA2AEgAnhKfdlyi0Y+RM1mzg2n4s18Hcw3ar1ioJyyPSMD+M4zANsTVC9usj8XevXid7DPsVC9B+CrNt4xEeAfmttXKvrh9E3pIfgDU/a3GdGfg/0AAAAASUVORK5CYII="/>
+                    </div>
+                  </div>
+                  <p>
+                    Quis quorum aliqua sint quem legam fore sunt eram irure
+                    aliqua veniam tempor noster veniam enim culpa labore duis
+                    sunt culpa nulla illum cillum fugiat legam esse veniam culpa
+                    fore nisi cillum quid.
+                  </p>
+                  <div class="profile mt-auto">
+                    <img
+                      src="/img/testimonials/testimonials-4.jpg"
+                      class="testimonial-img"
+                      alt=""
+                    />
+                    <h3>John Larson</h3>
+                    <h4>Entrepreneur</h4>
+                  </div>
+                </div>
+              </div>
+              <!-- End testimonial item -->
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <!-- End Testimonials Section -->
+      
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="contact" class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="index.html" class="logo d-flex align-items-center">
+                <img src="/img/favicon/logosg.svg" style="width: 40px; height: 40px;" alt="" />
+                <span>Site Go!</span>
+              </a>
+              <p>
+                "Site Go! - Panduan karier yang andal untuk membimbing Anda menuju kesuksesan. 
+                Manfaatkan keahlian dan pengetahuan kami untuk meraih potensi karier terbaik Anda."
+              </p>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bi bi-chevron-right"></i> <a href="home">Home</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i> <a href="about">About us</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i> <a href="contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="#">Web Development</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="#">Product Management</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Marketing</a>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right"></i>
+                  <a href="#">Graphic Design</a>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
+            >
+              <h4>Contact Us</h4>
+              <p>
+                APL Tower lt.37 Suite 1-8
+                Jl. Letjen S. Parman Kav. 28
+                Kel. Tanjung Duren Selatan
+                Kec. Grogol Petamburan
+                Kota Administrasi Jakarta Barat <br/><br/>
+                <strong>Phone:</strong> +62 811 19 500900<br/>
+                <strong>Email:</strong> info@example.com<br/>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>2023</span></strong
+          >. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/libs/aos/aos.js"></script>
+    <script src="/vendor/libs/swipper/swiper-bundle.min.js"></script>
+    <script src="/vendor/libs/glitbox/glightbox.min.js"></script>
+    <script src="/vendor/libs/purecounter/purecounter_vanilla.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/landing-page.js"></script>
+  </body>
+</html>

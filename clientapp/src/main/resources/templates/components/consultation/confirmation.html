@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+		<div
+			id="confirm-part"
+			class="content"
+			role="tabpanel"
+			aria-labelledby="confirmation-part-trigger"
+			th:fragment="confirmation"
+		>
+			<div>
+				<div
+					class="alert alert-danger"
+					role="alert"
+				>
+					If you click "Send Request," then the admin will review your request. Please be patient 🫵
+				</div>
+			</div>
+			<div class="d-flex justify-content-between mt-3">
+				<button type="button" class="btn btn-primary btn-previous">
+					Previous
+				</button>
+				<button
+					type="submit"
+					class="btn btn-primary btn-next"
+					id="btn-send-request">
+					Send Request
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

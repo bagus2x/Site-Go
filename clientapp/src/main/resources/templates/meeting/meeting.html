@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+		/>
+
+		<title>Site Go! Meeting</title>
+
+		<meta name="description" content=""/>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" th:href="@{/img/favicon/logosg.svg}"/>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Inject CSRF -->
+		<meta name="_csrf" th:content="${_csrf.token}">
+		<meta name="_csrf_header" th:content="${_csrf.headerName}">
+
+		<!-- Icons. Uncomment required icon fonts -->
+		<link rel="stylesheet" th:href="@{/vendor/fonts/boxicons.css}"/>
+
+		<!-- Core CSS -->
+		<link rel="stylesheet" th:href="@{/vendor/css/core.css}"/>
+		<link rel="stylesheet" th:href="@{/vendor/css/theme-default.css}"/>
+		<link rel="stylesheet" th:href="@{/vendor/libs/block-ui/spinkit.css}">
+		<link rel="stylesheet" th:href="@{/css/main.css}"/>
+		<link rel="stylesheet" th:href="@{/css/meeting/meeting.css}">
+
+		<!-- Vendors CSS -->
+		<link rel="stylesheet" th:href="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.css}"/>
+
+		<!-- Page CSS -->
+
+		<!-- Helpers -->
+		<script th:src="@{/vendor/js/helpers.js}"></script>
+		<script th:src="@{/js/config.js}"></script>
+	</head>
+	<body>
+		<main>
+			<div class="container video-container">
+			</div>
+			<div class="container toolbar">
+				<button class="btn btn-xl btn-icon btn-secondary">
+					<i class='bx bx-microphone bx-sm'></i>
+				</button>
+				<button class="btn btn-xl btn-icon btn-danger">
+					<i class='bx bx-phone bx-sm'></i>
+				</button>
+				<button class="btn btn-xl btn-icon btn-secondary">
+					<i class='bx bx-camera bx-sm' ></i>
+				</button>
+			</div>
+		</main>
+
+		<!-- Libs JS -->
+		<script th:src="@{/vendor/libs/jquery/jquery.js}"></script>
+		<script th:src="@{/vendor/libs/popper/popper.js}"></script>
+		<script th:src="@{/vendor/js/bootstrap.js}"></script>
+		<script th:src="@{/vendor/libs/perfect-scrollbar/perfect-scrollbar.js}"></script>
+		<script th:src="@{/vendor/libs/sweet-alert/sweetalert2.js}"></script>
+		<script th:src="@{/vendor/js/menu.js}"></script>
+		<script th:src="@{/vendor/libs/block-ui/block-ui.js}"></script>
+		<script th:src="@{/vendor/libs/stomp/stomp.min.js}"></script>
+		<script th:src="@{/vendor/libs/peerjs/peerjs.min.js}"></script>
+
+		<!-- Page JS -->
+		<script th:inline="javascript">
+			const profile = [[${#authentication.details}]]
+			window.profile = profile
+			window.hasRoleAdmin = profile.user.roles.some((role) => role.name === 'ADMIN')
+			window.hasRoleConsultant = profile.user.roles.some((role) => role.name === 'CONSULTANT')
+			window.hasRoleEmployee = profile.user.roles.some((role) => role.name === 'EMPLOYEE')
+		</script>
+		<script th:inline="javascript">
+			const MEETING_ID = [[${meetingId}]]
+		</script>
+				<script th:src="@{/js/meeting/meeting.js}"></script>
+	</body>
+</html>

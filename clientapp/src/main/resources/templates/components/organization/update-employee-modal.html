@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Update Employee</title>
+	</head>
+	<body>
+		<div
+			class="modal fade"
+			id="modal-update-employee"
+			tabindex="-1"
+			aria-labelledby="modal-update-employee"
+			aria-hidden="true"
+			th:fragment="modal"
+		>
+			<div class="modal-dialog">
+				<div id="form-update" class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="title-update-employee">Update Employee</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group mb-3">
+							<label for="input-profile-name" class="form-label">Full Name</label>
+							<input
+								class="form-control"
+								type="text"
+								id="input-profile-name"
+								name="name"
+								autofocus
+							/>
+						</div>
+
+						<div class="form-group mb-3">
+							<label for="select-profile-gender" class="form-label">Gender</label>
+							<select
+								id="select-profile-gender"
+								class="select2 form-select"
+								name="gender"
+							>
+								<option value="" disabled>Select Gender</option>
+								<option value="MALE">Male</option>
+								<option value="FEMALE">Female</option>
+							</select>
+						</div>
+
+						<div class="form-group mb-3">
+							<label
+								class="form-label"
+								for="input-profile-phone"
+							>
+								Phone Number
+							</label>
+							<div class="input-group input-group-merge">
+								<input
+									type="text"
+									id="input-profile-phone"
+									name="phone"
+									class="form-control"
+									placeholder="(+62) 202 555 0111"
+								/>
+							</div>
+						</div>
+
+						<div class="form-group mb-3 d-flex flex-column">
+							<label class="form-label" for="input-profile-cv">Cv</label>
+							<div class="input-group input-group-merge">
+								<input
+									type="file"
+									id="input-profile-cv"
+									name="cv"
+									class="form-control"
+									accept="application/pdf"
+								/>
+							</div>
+							<a
+								id="preview-cv"
+								class="link-opacity-100 mt-1"
+								style="font-size: 0.875rem"
+							>
+								Open
+							</a>
+						</div>
+
+						<div class="form-group mb-3">
+							<label for="select-profile-status" class="form-label">Status</label>
+							<select
+								id="select-profile-status"
+								class="select2 form-select text-capitalize"
+								name="status"
+							>
+								<option value="" disabled>Select Status</option>
+							</select>
+						</div>
+
+						<div class="form-group mb-3">
+							<span class="form-label mb-1 d-block">Roles</span>
+							<div id="cb-roles" class="d-flex flex-column gap-1">
+								<div class="form-check">
+									<input
+										name="roles"
+										class="form-check-input"
+										type="checkbox"
+										value="ADMIN"
+										id="cb-admin"
+									>
+									<label class="form-check-label" for="cb-admin">
+										Admin
+									</label>
+								</div>
+								<div class="form-check">
+									<input
+										name="roles"
+										class="form-check-input"
+										type="checkbox"
+										value="CONSULTANT"
+										id="cb-consultant"
+									>
+									<label class="form-check-label" for="cb-consultant">
+										Consultant
+									</label>
+								</div>
+								<div class="form-check">
+									<input
+										name="roles"
+										class="form-check-input"
+										type="checkbox"
+										value="EMPLOYEE"
+										id="cb-employee"
+										checked
+									>
+									<label class="form-check-label" for="cb-employee">
+										Employee
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button id="btn-update" type="submit" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

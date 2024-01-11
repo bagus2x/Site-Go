@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>View CV</title>
+	</head>
+	<body>
+		<div
+			class="modal fade"
+			id="modal-cv"
+			tabindex="-1"
+			aria-hidden="true"
+			th:fragment="modal(cvUrl)"
+		>
+			<div class="modal-dialog modal-fullscreen modal-dialog-scrollable" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="modalFullTitle">
+							CV
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div
+						class="modal-body"
+						id="cv"
+						th:if="${cvUrl != null}"
+					>
+						<object th:data="${cvUrl}" type="application/pdf" class="w-100 h-100">
+							<iframe class="w-100 h-100" th:src="'https://docs.google.com/viewer?url=' + ${cvUrl} + '&' + 'embedded=true'"></iframe>
+						</object>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

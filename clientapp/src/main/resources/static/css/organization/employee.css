@@ -1,0 +1,32 @@
+.dataTables_wrapper > .row:first-child, .dataTables_wrapper > .row:last-child, .col-sm-12.col-md-5, .col-sm-12.col-md-7 {
+    padding: 1rem 1.5rem !important;
+}
+
+.dataTables_wrapper input, .dataTables_wrapper select {
+    padding: 8px 16px;
+}
+
+.dataTables_length select, .dataTables_length .select2 {
+    width: 80px !important;
+}
+
+.dataTables_wrapper table {
+    table-layout: fixed !important;
+    width: 98% !important;
+}
+
+#table-employee_filter {
+    display: flex;
+    justify-content: end;
+    gap: 16px;
+    align-items: stretch;
+}
+
+#table-employee_filter input {
+    height: 100%;
+    font-size: 1rem;
+}
+
+#table-employee_filter .select2, #table-employee_filter select {
+    min-width: 160px;
+}

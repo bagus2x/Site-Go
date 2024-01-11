@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/dashboard-container}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Role</title>
+  </head>
+  <body>
+    <main
+      class="container-xxl flex-grow-1 container-p-y"
+      layout:fragment="content"
+    >
+      <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Organization / </span> Role
+      </h4>
+
+      <div class="row" id="sortable-cards">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card drag-item cursor-move mb-lg-0 mb-4">
+            <div class="card-body text-center">
+              <h2>
+                <i class="bx bx-user text-success display-6"></i>
+              </h2>
+              <h2>Admin</h2>
+              <hr />
+
+              <div>
+              <p class="text-start">
+                The admin can handles user management, employee registrations, and application validations. Also oversee consultant scheduling and can view a recap of all consultation results.            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card drag-item cursor-move mb-lg-0 mb-4">
+            <div class="card-body text-center">
+              <h2>
+                <i class="bx bx-buildings text-danger display-6"></i>
+              </h2>
+              <h2>Employee</h2>
+              <hr />
+              
+              <div>
+                <p class="text-start pb-4">
+                The employee can submit consultations, update their profile data, and request validation from the admin and schedule consultations with the consultant.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card drag-item cursor-move mb-lg-0 mb-4">
+            <div class="card-body text-center">
+              <h2>
+                <i class="bx bxs-notepad text-primary display-6"></i>
+              </h2>
+              <h2>Consultant</h2>
+              <hr />
+
+              <div>
+                <p class="text-start pb-5">
+                  The consultant manages employee consultations and provides reports on submitted consultations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <th:block layout:fragment="scripts">
+      <script th:src="@{/js/organization/role.js}"></script>
+    </th:block>
+  </body>
+</html>

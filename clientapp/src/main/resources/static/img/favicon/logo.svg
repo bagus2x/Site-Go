@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 464.94 164.81">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #8696fe;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #ad33ff;
+        opacity: .81;
+      }
+
+      .cls-3 {
+        font-family: Bauhaus93, 'Bauhaus 93';
+        font-size: 89.81px;
+        letter-spacing: .05em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-1" d="m151.16,0l-49.39,97.48h-62.6C10.65,87.02.01,63.58,0,42.67S18.03,4.26,43.01,0h108.16Z"/>
+    <path class="cls-2" d="m8.54,154.38L57.08,56.49l62.59-.53c28.62,10.22,39.46,33.57,39.65,54.47.19,20.91-17.69,38.57-42.63,43.03l-108.15.91Z"/>
+    <text class="cls-3" transform="translate(183.36 142.36) scale(1.08 1)"><tspan x="0" y="0">ite Go</tspan></text>
+  </g>
+</svg>
